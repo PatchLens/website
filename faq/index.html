@@ -32,63 +32,63 @@
   </nav>
 </header>
 
-<!-- ===== FAQ PAGE ===== -->
-<section class="section-white">
+<!-- ===== FAQ HERO ===== -->
+<section class="section-bright" style="padding: 3rem 0;">
   <div class="container">
-    <div class="two-col" style="align-items: flex-start;">
-      <div class="col-text">
-        <p class="section-label">Documentation</p>
-        <h2>PatchLens FAQs</h2>
-      </div>
-      <div class="col-text">
-
-        <div class="faq-item">
-          <p class="faq-q">What languages does PatchLens support?</p>
-          <div class="faq-a">
-            <p>PatchLens currently only supports Golang projects.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <p class="faq-q">How does PatchLens integrate?</p>
-          <div class="faq-a">
-            <p>PatchLens is designed to be included as part of your continuous integration pipeline. It works with existing tools (like Dependabot or Snyk) which create pull requests or otherwise initiate dependency updates. When an update CI workflow starts it should execute PatchLens to analyze the update and provide a report specific to the provided change.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <p class="faq-q">Getting Started</p>
-          <div class="faq-a">
-            <p>If you want to include PatchLens in your GitHub workflows see the <a href="https://github.com/PatchLens/go-dep-impact-action" target="_blank" rel="noopener">go-dep-impact-action repo</a>. For one-off runs or other CI integrations try our open source CLI in the <a href="https://github.com/PatchLens/go-update-lens" target="_blank" rel="noopener">go-update-lens repo</a>.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <p class="faq-q">You detect 0-Day Supply Chain Compromises?</p>
-          <div class="faq-a">
-            <p>PatchLens combines static code analysis with runtime behavioral analysis to catch suspicious changes in dependency updates:</p>
-            <p><strong>Static Analysis:</strong> We automatically scan for new or modified code that performs security-sensitive operations — like network requests, filesystem access, system calls, or data obfuscation techniques. If a dependency update introduces these capabilities, we flag it for review.</p>
-            <p><strong>Behavioral Analysis:</strong> We don't just look for new capabilities — we monitor how dependencies actually behave at runtime. Even if a package already performs network operations or file access, we detect when that behavior changes. For example:</p>
-            <ul>
-              <li>A networking library that starts connecting to unexpected servers</li>
-              <li>A utility that begins accessing credential files or environment variables it previously ignored</li>
-              <li>A package that changes which files it reads or how it processes data</li>
-            </ul>
-            <p>This dual approach catches sophisticated attacks where malicious actors subtly modify legitimate packages to exfiltrate data or compromise systems. Because PatchLens runs automatically in your CI pipeline on every dependency update, these threats are identified before they're merged — turning detection into prevention.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <p class="faq-q">What is the project maturity?</p>
-          <div class="faq-a">
-            <p>PatchLens is a new tool. Although we are confident that it is capable of providing valuable signal into your dependency updates, it is also still a work in progress. Supported features will improve and evolve, and we welcome your <a href="https://github.com/PatchLens/" target="_blank" rel="noopener">feedback</a>.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
+    <p class="section-label">Documentation</p>
+    <h1>Frequently Asked Questions</h1>
   </div>
 </section>
+
+<!-- ===== FAQ ITEMS ===== -->
+<div class="prose-page">
+  <div class="prose" style="max-width: 1000px;">
+
+    <div class="faq-item">
+      <p class="faq-q">What languages does PatchLens support?</p>
+      <div class="faq-a">
+        <p>PatchLens currently only supports Golang projects.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">How does PatchLens integrate?</p>
+      <div class="faq-a">
+        <p>PatchLens is designed to be included as part of your continuous integration pipeline. It works with existing tools (like Dependabot or Snyk) which create pull requests or otherwise initiate dependency updates. When an update CI workflow starts it should execute PatchLens to analyze the update and provide a report specific to the provided change.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Getting Started</p>
+      <div class="faq-a">
+        <p>If you want to include PatchLens in your GitHub workflows see the <a href="https://github.com/PatchLens/go-dep-impact-action" target="_blank" rel="noopener">go-dep-impact-action repo</a>. For one-off runs or other CI integrations try our open source CLI in the <a href="https://github.com/PatchLens/go-update-lens" target="_blank" rel="noopener">go-update-lens repo</a>.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">You detect 0-Day Supply Chain Compromises?</p>
+      <div class="faq-a">
+        <p>PatchLens combines static code analysis with runtime behavioral analysis to catch suspicious changes in dependency updates:</p>
+        <p><strong>Static Analysis:</strong> We automatically scan for new or modified code that performs security-sensitive operations — like network requests, filesystem access, system calls, or data obfuscation techniques. If a dependency update introduces these capabilities, we flag it for review.</p>
+        <p><strong>Behavioral Analysis:</strong> We don't just look for new capabilities — we monitor how dependencies actually behave at runtime. Even if a package already performs network operations or file access, we detect when that behavior changes. For example:</p>
+        <ul>
+          <li>A networking library that starts connecting to unexpected servers</li>
+          <li>A utility that begins accessing credential files or environment variables it previously ignored</li>
+          <li>A package that changes which files it reads or how it processes data</li>
+        </ul>
+        <p>This dual approach catches sophisticated attacks where malicious actors subtly modify legitimate packages to exfiltrate data or compromise systems. Because PatchLens runs automatically in your CI pipeline on every dependency update, these threats are identified before they're merged — turning detection into prevention.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">What is the project maturity?</p>
+      <div class="faq-a">
+        <p>PatchLens is a new tool. Although we are confident that it is capable of providing valuable signal into your dependency updates, it is also still a work in progress. Supported features will improve and evolve, and we welcome your <a href="https://github.com/PatchLens/" target="_blank" rel="noopener">feedback</a>.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 <!-- ===== FOOTER ===== -->
 <footer>
