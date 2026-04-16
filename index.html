@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PatchLens — Deep Dependency Update Risk Analysis</title>
+  <meta name="description" content="PatchLens automates Go module dependency risk assessment using static call-graph analysis, field-state inspection, and AI-powered test expansion." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="icon-github" viewBox="0 0 16 16">
+    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+  </symbol>
+</svg>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <nav>
+    <div class="logo"><a href="./">PatchLens</a></div>
+    <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="./">Home</a></li>
+      <li><a href="methodology/">Methodology</a></li>
+      <li><a href="faq/">FAQ</a></li>
+      <li><a href="https://github.com/PatchLens/go-dep-impact-action" target="_blank" rel="noopener"><svg width="14" height="14" aria-hidden="true"><use href="#icon-github"/></svg>GitHub Action</a></li>
+      <li><a href="https://github.com/PatchLens/go-update-lens" target="_blank" rel="noopener"><svg width="14" height="14" aria-hidden="true"><use href="#icon-github"/></svg>CLI</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="section-tan">
+  <div class="container">
+    <div class="two-col">
+      <div class="col-text">
+        <h1>Deep Dependency Update Risk Analysis</h1>
+        <div style="height: 1.5rem"></div>
+        <h4 style="font-weight: 500; color: #374151; line-height: 1.6;">PatchLens automates Go Module Compatibility Testing and Dependency Risk Assessment, reducing testing and debugging effort while revealing hidden impacts.</h4>
+      </div>
+      <div class="col-img">
+        <img
+          src="assets/images/4-detailed_graph.png"
+          alt="PatchLens detailed dependency call-graph analysis visualization"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VALUE PROPOSITION SECTION ===== -->
+<section class="section-bright">
+  <div class="container">
+    <div class="two-col">
+      <div class="col-text">
+        <p class="lead">Dependency updates can hide far-reaching effects: a tiny tweak in a library API or data field can ripple through your codebase. PatchLens stops those surprises by chaining together static call-graph analysis, field-state inspection, and AI-powered test expansions to build a safety net around every Go module bump. It pinpoints exactly which functions, data fields, and behaviors have shifted. PatchLens presents this in easy to understand charts so that you know what can be merged effortlessly and what needs attention.</p>
+      </div>
+      <div class="col-text">
+        <ul class="feature-list">
+          <li>
+            <strong>Eliminate Hidden Regressions</strong>
+            <p class="feat-desc">Catch subtle behavior changes early.</p>
+          </li>
+          <li>
+            <strong>Detect Supply Chain Attacks</strong>
+            <p class="feat-desc">Identify suspicious 0-day behavior changes in dependencies.</p>
+          </li>
+          <li>
+            <strong>Accelerate Debugging</strong>
+            <p class="feat-desc">Field-level insights identify exactly "what" and "where" behaviors changed.</p>
+          </li>
+          <li>
+            <strong>Enhance Security Posture</strong>
+            <p class="feat-desc">Automatically vet dependency updates to stay ahead of vulnerabilities.</p>
+          </li>
+          <li>
+            <strong>Easy GitHub CI Integration</strong>
+            <p class="feat-desc">Seamlessly integrates with your existing dependency update pull request workflow.</p>
+          </li>
+          <li>
+            <strong>Actionable Reports</strong>
+            <p class="feat-desc">Understand risk and confidence levels at a glance, backed by detailed insights.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA SECTION ===== -->
+<section class="section-white">
+  <div class="container">
+    <div class="two-col img-left">
+      <div class="col-img">
+        <img
+          src="assets/images/3-validate-2.png"
+          alt="Static call-graph showing field state analysis and module change impact, with risk and confidence bars"
+          loading="lazy"
+        />
+      </div>
+      <div class="col-text">
+        <p class="lead">Reduce uncertainty and ship with confidence. PatchLens ensures every dependency update is fully analyzed for functionality and security, rigorously tested, and clearly understood before it reaches production.</p>
+        <p class="lead">Try PatchLens free using our <a href="https://github.com/PatchLens/go-dep-impact-action" target="_blank" rel="noopener">GitHub Action</a> or <a href="https://github.com/PatchLens/go-update-lens" target="_blank" rel="noopener">CLI</a>.</p>
+        <div class="btn-group">
+          <a href="https://github.com/PatchLens/go-dep-impact-action" target="_blank" rel="noopener" class="btn btn-primary">GitHub Action</a>
+          <a href="https://github.com/PatchLens/go-update-lens" target="_blank" rel="noopener" class="btn btn-outline">Open Source CLI</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <ul class="footer-links">
+      <li><a href="methodology/">Methodology</a></li>
+      <li><a href="faq/">FAQ</a></li>
+      <li><a href="privacy-policy/">Privacy Policy</a></li>
+      <li><a href="terms-of-service/">Terms of Service</a></li>
+      <li><a href="https://github.com/PatchLens" target="_blank" rel="noopener"><svg width="14" height="14" aria-hidden="true"><use href="#icon-github"/></svg>GitHub</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 PatchLens. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

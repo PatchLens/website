@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Methodology — PatchLens</title>
+  <meta name="description" content="Learn how PatchLens uses a three-step approach — Analysis, Expand, and Validate — to assess Go dependency update risk." />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="icon-github" viewBox="0 0 16 16">
+    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+  </symbol>
+</svg>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <nav>
+    <div class="logo"><a href="../">PatchLens</a></div>
+    <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="../">Home</a></li>
+      <li><a href="../methodology/">Methodology</a></li>
+      <li><a href="../faq/">FAQ</a></li>
+      <li><a href="https://github.com/PatchLens/go-dep-impact-action" target="_blank" rel="noopener"><svg width="14" height="14" aria-hidden="true"><use href="#icon-github"/></svg>GitHub Action</a></li>
+      <li><a href="https://github.com/PatchLens/go-update-lens" target="_blank" rel="noopener"><svg width="14" height="14" aria-hidden="true"><use href="#icon-github"/></svg>CLI</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ===== STEP 1: ANALYSIS ===== -->
+<section class="section-white">
+  <div class="container">
+    <div class="two-col img-right">
+      <div class="col-text">
+        <p class="section-label">Our Approach</p>
+        <h1>Methodology</h1>
+        <div style="height: 2rem"></div>
+        <div class="step-badge">1</div>
+        <h2>Analysis</h2>
+        <div style="height: 1rem"></div>
+        <p>Our tool begins with a detailed change impact analysis. This includes:</p>
+        <ul style="margin-top: 0.75rem; color: #374151; line-height: 1.8;">
+          <li>Precisely identifying what has changed (including indirect dependencies)</li>
+          <li>Static code analysis to map how the project interacts with the dependency changes</li>
+          <li>Identifies security sensitive operations on the network, filesystem, OS, as well as attempts at obfuscation and data or credential exfiltration techniques that could indicate zero-day supply chain compromises</li>
+        </ul>
+      </div>
+      <div class="col-img">
+        <img
+          src="../assets/images/1-analysis-2.jpg"
+          alt="Call-graph impact analysis diagram showing Go project functions (dark blue circles) on the left linked by lines to module functions on the right, illustrating direct and transitive dependency changes"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STEP 2: EXPAND ===== -->
+<section class="section-bright section-fill-image">
+  <div class="container">
+    <div class="two-col img-right">
+      <div class="col-text">
+        <div class="step-badge">2</div>
+        <h2>Expand</h2>
+        <div style="height: 0.5rem"></div>
+        <p>After understanding dependency changes and project interactions, we expand testing coverage to validate stability:</p>
+        <ul style="margin-top: 0.75rem; color: #374151; line-height: 1.8;">
+          <li>Identifying valuable points to monitor field values across the project — allowing us to witness behavior changes anywhere in the project, not just at the unit test validations</li>
+          <li>AI-powered expansion of test execution to improve change behavior coverage</li>
+        </ul>
+        <div style="height: 0.5rem"></div>
+        <p>The advantage to our field level inspection is that the test expansions don't need to concern themselves with assertions. Instead we just complete the coverage and use the field analysis to determine if there is a behavior change.</p>
+        <p>By having such a detailed analysis done prior, we can ensure that our field state checks, and later the validation step, target only areas of the project and module that are relevant for the change. This keeps our tool fast. Our techniques are very detailed, and must be targeted in order to have reasonable execution times.</p>
+      </div>
+      <div class="col-img">
+        <img
+          src="../assets/images/2-expand-1.jpg"
+          alt="Side-by-side flowchart: standard unit test sequence vs. PatchLens AI-driven test expansion with added verification checks"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STEP 3: VALIDATE ===== -->
+<section class="section-white">
+  <div class="container" style="max-width:none; padding-left:max(2rem,calc((100vw - 1200px)/2 + 2rem)); padding-right:0;">
+    <div class="two-col img-left" style="grid-template-columns: 1.15fr 1fr; gap: 3rem;">
+      <div class="col-img">
+        <img
+          src="../assets/images/3-validate-2.png"
+          alt="Static call-graph showing field state analysis and module change impact, with risk and confidence bars"
+          loading="lazy"
+        />
+      </div>
+      <div class="col-text" style="padding-right: 2rem;">
+        <div class="step-badge">3</div>
+        <h2>Validate</h2>
+        <div style="height: 1rem"></div>
+        <p>Once prepared, our tool is aware of the intersection from the dependency change and the project. We must then validate:</p>
+        <ol style="margin: 0.75rem 0 1rem 1.5rem; color: #374151; line-height: 1.8;">
+          <li>Are there obvious test failures to consider — if so, we try to detect where the behavior change started</li>
+          <li>At points where the project intersects a call path to a changed module function, are there any internal field or behavior changes</li>
+          <li>The confidence that the tool was able to validate that behavior change</li>
+        </ol>
+        <p>Risk is determined by performing a combination of unit testing and the field analysis described in the expand section above.</p>
+        <p>We determine confidence by:</p>
+        <ol style="margin: 0.75rem 0 1rem 1.5rem; color: #374151; line-height: 1.8;">
+          <li>Validating that the expanded test suite reaches the targeted change points</li>
+          <li>Introducing synthetic bugs at the logic changes within the dependency to confirm the tests can detect them</li>
+        </ol>
+        <div style="height: 0.5rem"></div>
+        <p>Beyond functional validation, PatchLens specifically elevates security concerns by monitoring how dependencies interact with security-sensitive operations. Even when code accessing sensitive resources isn't new, we flag any behavioral changes — like a networking library suddenly connecting to unexpected servers, or a utility attempting to access credential files. This runtime analysis helps detect zero-day supply chain attacks where malicious actors subtly alter legitimate package behavior to exfiltrate data or compromise systems.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="section-bright">
+  <div class="container" style="text-align: center; max-width: 700px;">
+    <h2>Ready to protect your dependencies?</h2>
+    <p class="lead" style="margin: 1.25rem 0;">Try PatchLens free with our GitHub Action or open-source CLI.</p>
+    <div class="btn-group" style="justify-content: center;">
+      <a href="https://github.com/PatchLens/go-dep-impact-action" target="_blank" rel="noopener" class="btn btn-primary">GitHub Action</a>
+      <a href="https://github.com/PatchLens/go-update-lens" target="_blank" rel="noopener" class="btn btn-outline">Open Source CLI</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <ul class="footer-links">
+      <li><a href="../methodology/">Methodology</a></li>
+      <li><a href="../faq/">FAQ</a></li>
+      <li><a href="../privacy-policy/">Privacy Policy</a></li>
+      <li><a href="../terms-of-service/">Terms of Service</a></li>
+      <li><a href="https://github.com/PatchLens" target="_blank" rel="noopener"><svg width="14" height="14" aria-hidden="true"><use href="#icon-github"/></svg>GitHub</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 PatchLens. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
